@@ -13,7 +13,7 @@ class ErrorHandlerManager:
 
         @self.app.errorhandler(404)
         def not_found_error(e):
-            self.app.logger.warning('Page Not Found, please review the URL: %s', str(e))
+            self.app.logger.warning('Page Not Found: %s', str(e))
             return render_template('404.html'), 404
 
         @self.app.errorhandler(401)
