@@ -1,14 +1,14 @@
 from selenium.common.exceptions import NoSuchElementException
 import time
 
+from selenium import webdriver
 from core.environment.host import get_host_for_selenium_testing
-from core.selenium.common import initialize_driver, close_driver
+from core.selenium.common import close_driver
 
 
 def test_webhook_index():
 
-    driver = initialize_driver()
-
+    driver = webdriver.Chrome()
     try:
         host = get_host_for_selenium_testing()
 

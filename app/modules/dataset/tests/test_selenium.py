@@ -1,12 +1,13 @@
 import os
 import time
 
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 
 from core.environment.host import get_host_for_selenium_testing
-from core.selenium.common import initialize_driver, close_driver
+from core.selenium.common import close_driver
 
 
 def wait_for_page_to_load(driver, timeout=4):
@@ -27,7 +28,7 @@ def count_datasets(driver, host):
 
 
 def test_upload_dataset():
-    driver = initialize_driver()
+    driver = webdriver.Chrome()
 
     try:
         host = get_host_for_selenium_testing()
